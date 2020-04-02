@@ -3,9 +3,9 @@ use Mix.Config
 # Configure your database
 config :cookpad, Cookpad.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "",
   database: "cookpad_test",
-  hostname: "localhost",
+  hostname: "db",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # Configure the database for GitHub Actions
