@@ -10,9 +10,7 @@ config :cookpad, Cookpad.Repo,
 
 # Configure the database for GitHub Actions
 if System.get_env("GITHUB_ACTIONS") do
-  config :app, Cookpad.Repo,
-    username: "postgres",
-    password: "postgres"
+  config :app, Cookpad.Repo, hostname: "localhost"
 end
 
 # We don't run a server during test. If one is required,
