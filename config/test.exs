@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :cookpad, Cookpad.Repo,
   username: "postgres",
-  password: "",
+  password: "postgres",
   database: "cookpad_test",
   hostname: "db",
   pool: Ecto.Adapters.SQL.Sandbox
