@@ -63,5 +63,5 @@ jobs:
       - run: mix format --check-formatted
       - run: mix credo
       - run: mix test
-      - run: mix dialyzer
       - run: mix coveralls.github
+      - run: mix dialyzer
