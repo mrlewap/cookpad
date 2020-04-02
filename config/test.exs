@@ -3,10 +3,20 @@ use Mix.Config
 # Configure your database
 config :cookpad, Cookpad.Repo,
   username: "postgres",
-  password: "",
+  password: "postgres",
   database: "cookpad_test",
   hostname: "db",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure the database for GitHub Actions
+if System.get_env("GITHUB_ACTIONS") do
+  config :cookpad, Cookpad.Repo,
+    username: "postgres",
+    password: "postgres",
+    database: "cookpad_test",
+    hostname: "localhost",
+    pool: Ecto.Adapters.SQL.Sandbox
+end
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.

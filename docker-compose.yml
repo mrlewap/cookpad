@@ -2,7 +2,8 @@ version: '3.2'
 services:
   db:
     environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     image: postgres
 
   web:

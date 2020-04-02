@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :cookpad, Cookpad.Repo,
   username: "postgres",
-  password: "",
+  password: "postgres",
   database: "cookpad_dev",
   hostname: "db",
   show_sensitive_data_on_connection_error: true,
