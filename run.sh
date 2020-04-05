@@ -9,13 +9,13 @@ set -e
 mix deps.get
 
 # Prepare Dialyzer if the project has Dialyxer set up
-if mix help dialyzer >/dev/null 2>&1
-then
-  echo "\nFound Dialyxer: Setting up PLT..."
-  mix do deps.compile, dialyzer --plt
-else
-  echo "\nNo Dialyxer config: Skipping setup..."
-fi
+#if mix help dialyzer >/dev/null 2>&1
+#then
+#  echo "\nFound Dialyxer: Setting up PLT..."
+#  mix do deps.compile, dialyzer --plt
+#else
+#  echo "\nNo Dialyxer config: Skipping setup..."
+#fi
 
 # Install JS libraries
 echo "\nInstalling JS..."
