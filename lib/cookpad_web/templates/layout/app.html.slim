@@ -1,0 +1,35 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    title = assigns[:page_title] || "Cookpad · Phoenix Framework"
+    / script src="https://kit.fontawesome.com/81b6f11ec1.js" crossorigin="anonymous"
+    link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/app.css")}"
+    = csrf_meta_tag()
+
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container
+        a.navbar-brand href="#{Routes.page_path(@conn, :index)}" Cookpad
+        button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+          span.navbar-toggler-icon
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link href="#{Routes.page_path(@conn, :terms)}" = gettext("Terms")
+
+    .container
+      = unless is_nil(get_flash(@conn, :info)) do
+        p.alert.alert-info role="alert"= get_flash(@conn, :info)
+      = unless is_nil(get_flash(@conn, :error)) do
+        p.alert.alert-danger role="alert"= get_flash(@conn, :error)
+
+      = render @view_module, @view_template, assigns
+
+    footer.py-5.bg-dark
+      .container
+        p.m-0.text-center.text-white Copyright © Cookpad 2020
+
+    script type="text/javascript" src="#{Routes.static_path(@conn, "/js/app.js")}"
