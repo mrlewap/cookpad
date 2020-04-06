@@ -26,6 +26,18 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Slime
+config :phoenix, :template_engines,
+  slim: PhoenixSlime.Engine,
+  slime: PhoenixSlime.Engine,
+  # If you want to use LiveView
+  slimleex: PhoenixSlime.LiveViewEngine
+
+config :phoenix_slime, :use_slim_extension, true
+
+# Locales
+config :cookpad, CookpadWeb.Gettext, default_locale: "ru", locales: ~w(en ru)
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
