@@ -16,6 +16,7 @@ defmodule CookpadWeb.SessionController do
         conn
         |> put_session(:current_user, user["name"])
         |> redirect(to: Routes.page_path(conn, :index))
+
       errors ->
         render(conn, "new.html", errors: errors)
     end
@@ -29,8 +30,9 @@ defmodule CookpadWeb.SessionController do
 
   defp validate_user(user) do
     Enum.reduce(user, %{}, fn {name, value}, acc ->
-      if String.length(value) == 0, do: Map.put(acc, name, gettext("%{name} can't be blank!", name: name)), else: acc
+      if String.length(value) == 0,
+        do: Map.put(acc, name, gettext("%{name} can't be blank!", name: name)),
+        else: acc
     end)
   end
-
 end
