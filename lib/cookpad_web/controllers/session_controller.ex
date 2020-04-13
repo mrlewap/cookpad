@@ -31,7 +31,7 @@ defmodule CookpadWeb.SessionController do
   defp validate_user(user) do
     Enum.reduce(user, %{}, fn {name, value}, acc ->
       if String.length(value) == 0,
-        do: Map.put(acc, name, gettext("%{name} can't be blank!", name: name)),
+        do: Map.put(acc, name, gettext("%{name} can not be blank!", name: name)),
         else: acc
     end)
   end
