@@ -3,6 +3,8 @@ defmodule CookpadWeb.AuthPlug do
   import Phoenix.Controller, only: [redirect: 2]
   alias CookpadWeb.Router.Helpers, as: Routes
 
+  @moduledoc "Authorize pages"
+
   def init(opts), do: opts
 
   def call(conn, _opts) do
