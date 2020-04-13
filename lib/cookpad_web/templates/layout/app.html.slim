@@ -19,6 +19,15 @@ html lang="en"
           ul.navbar-nav.ml-auto
             li.nav-item
               a.nav-link href="#{Routes.page_path(@conn, :terms)}" = gettext("Terms")
+            li.nav-item
+              = if @current_user do
+                .btn-group
+                  = link(@current_user, to: Routes.session_path(@conn, :show), class: "btn btn-info nav-link")
+                  button.btn.btn-info.dropdown-toggle.dropdown-toggle-split type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  .dropdown-menu
+                    = button(gettext("Log out"), to: Routes.session_path(@conn, :delete), method: :delete, class: "btn btn-primary dropdown-item")
+              - else
+                = link(gettext("Log in"), to: Routes.session_path(@conn, :new), class: "btn btn-info nav-link")
 
     .container
       = unless is_nil(get_flash(@conn, :info)) do
