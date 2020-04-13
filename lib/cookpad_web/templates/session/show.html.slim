@@ -1,0 +1,8 @@
+.mt-4
+  .jumbotron
+    = if @current_user do
+      p = gettext("You are logged in as %{name}", name: @current_user)
+      = button(gettext("Log out"), to: Routes.session_path(@conn, :delete), method: :delete, class: "btn btn-primary")
+    - else
+      p = gettext("You are not logged in!")
+      = link(gettext("Log in"), to: Routes.session_path(@conn, :new))
