@@ -38,6 +38,9 @@ config :phoenix_slime, :use_slim_extension, true
 # Locales
 config :cookpad, CookpadWeb.Gettext, default_locale: "ru", locales: ~w(en ru)
 
+# Honeybadger
+config :honeybadger, api_key: "9f360d3f"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

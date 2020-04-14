@@ -50,7 +50,7 @@ defmodule CookpadWeb.Router do
     |> render("500.html")
   end
 
-  def handle_errors(conn, _), do: conn
+  use Honeybadger.Plug
 
   # Other scopes may use custom stacks.
   # scope "/api", CookpadWeb do
