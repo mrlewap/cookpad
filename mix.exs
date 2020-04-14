@@ -28,7 +28,7 @@ defmodule Cookpad.MixProject do
   def application do
     [
       mod: {Cookpad.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:honeybadger, :logger, :runtime_tools]
     ]
   end
 
@@ -54,7 +54,8 @@ defmodule Cookpad.MixProject do
       {:credo, "~> 1.2", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:excoveralls, "~> 0.10", only: :test},
-      {:phoenix_slime, "~> 0.13.1"}
+      {:phoenix_slime, "~> 0.13.1"},
+      {:honeybadger, "~> 0.12"}
     ]
   end
 
